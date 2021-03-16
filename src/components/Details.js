@@ -41,7 +41,7 @@ return (
         <button className="downvotes" onClick={handleDownvoteClick}> 👎 {downvotes} </button>
         <p>
         <button className="hideComments" onClick={handleHideComments}> 
-            {hideComments ? "Hide" : "Show"} Comments </button>
+            {hideComments ? "Show" : "Hide"} Comments </button>
         {hideComments ? null : commentItems}
 
         </p>
