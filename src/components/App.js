@@ -1,4 +1,5 @@
 // import video from "../data/video.js";
+import video from "../data/video.js";
 import Details from "./Details.js"
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      < Details />
+      < Details comments={video.comments}/>
 
     </div>
   );

@@ -1,10 +1,15 @@
 import React, {useState} from "react";
 import video from "../data/video.js";
+import Comments from "./Comments.js";
 
-function Details() {
+function Details({comments}) {
     const [upvotes, setUpvotes] = useState(video.upvotes)
     const [downvotes, setDownvotes] = useState(video.downvotes)
     const [hideComments, setHideComments] = useState(false)
+
+    const commentItems = comments.map((comment) => {
+        return <Comments user={comment.user} comment={comment.comment}/> 
+    })
 
     function handleUpvoteClick() {
         setUpvotes(upvotes + 1)
@@ -37,8 +42,10 @@ return (
         <p>
         <button className="hideComments" onClick={handleHideComments}> 
             {hideComments ? "Hide" : "Show"} Comments </button>
+        {hideComments ? null : commentItems}
+
         </p>
-        {hideComments ?
+        {/* {hideComments ?
         <p> {video.comments[0].user} </p>
         : null}
         {hideComments ?
@@ -46,7 +53,7 @@ return (
         : null}
         {hideComments ?
         <p> {video.comments[1].comment} </p>
-        :null}
+        :null} */}
         </div>
 )}
 export default Details;
